@@ -1,0 +1,152 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/constraint"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txtReferenciaIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="item"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutItem2"
+            app:layout_constraintTop_toBottomOf="@id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txtClienteIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Cliente"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutItem3"
+            app:layout_constraintTop_toBottomOf="@id/layoutItem2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="7">  <!-- Suma total de pesos -->
+
+
+            <TextView
+                android:id="@+id/txtSriIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3"
+                android:text="# Sri"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtBodegaIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:text="Bodega"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtFechaFacIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:text="Fecha Factura"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTipoFacIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:text="Tipo Factura"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtCantidadIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:text="Cantidad"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtPrecioVenIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Precio Venta"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTotalIC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".6"
+                android:text="Total"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

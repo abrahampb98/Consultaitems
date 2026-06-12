@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Tu background original -->
+    <item>
+        <bitmap
+            android:src="@drawable/background"
+            android:tileMode="disabled"
+            android:gravity="fill" />
+    </item>
+
+    <!-- Borde encima del background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+
+            <stroke
+                android:width="1dp"
+                android:color="@color/black" />
+
+            <corners android:radius="8dp" />
+
+            <padding
+                android:left="8dp"
+                android:top="8dp"
+                android:right="8dp"
+                android:bottom="8dp" />
+        </shape>
+    </item>
+
+</layer-list>

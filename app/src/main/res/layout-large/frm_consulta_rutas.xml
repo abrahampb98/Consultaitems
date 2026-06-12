@@ -1,0 +1,301 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:padding="8dp"
+        tools:ignore="MissingDefaultResource">
+
+        <LinearLayout
+            android:id="@+id/Criterios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:weightSum="5"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Año -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:text="Año:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerAnio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:background="@drawable/spinner_background"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="8dp" />
+
+            <!-- Mes -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:gravity="center"
+                android:text="Mes:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerMes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:background="@drawable/spinner_background"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="8dp" />
+
+            <!-- Semana -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".9"
+                android:gravity="end"
+                android:paddingRight="20dp"
+                android:text="Semana:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerSemana"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:background="@drawable/spinner_background"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <!-- Spinner para seleccionar la semana -->
+        <LinearLayout
+            android:id="@+id/llSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Criterios">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Fecha Inc.:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtFechaInicialRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:background="@drawable/edittext_background"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Fecha Fin:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtFechaFinalRV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:background="@drawable/edittext_background"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="" />
+
+        </LinearLayout>
+
+
+
+        <!-- **************************layout 1**********************************  -->
+        <TextView
+            android:id="@+id/lblPrinciapl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ruta"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llSpinner" />
+
+        <LinearLayout
+            android:id="@+id/labels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:weightSum="10"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/lblPrinciapl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recyclerViewRV">
+
+            <!-- # Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="#"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Nombre del Cliente Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Nombre del Cliente"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Ciudad Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ciudad"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Día Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:text="Día"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Visita Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="Visita"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Cobro Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="Cobro"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Venta Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="Venta"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- GT Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:gravity="center"
+                android:text="GT"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Obs. Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Obs."
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+            <!-- Envio Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:text="Envio"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_Ruta"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <!-- RecyclerView para mostrar la lista de clientes -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewRV"
+            android:layout_width="0dp"
+            android:layout_height="680dp"
+            app:layout_constraintTop_toBottomOf="@id/labels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:layout_marginBottom="8dp"
+            android:scrollbars="vertical" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

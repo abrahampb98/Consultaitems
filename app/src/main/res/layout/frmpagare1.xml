@@ -1,0 +1,415 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.fragments.frmPagare">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Contenedor principal del ScrollView -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <!-- Otros elementos en tu diseño -->
+
+            <EditText
+                android:id="@+id/txtBusqueda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar cliente"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_background"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/lblCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Cliente:"
+                android:layout_below="@id/txtBusqueda"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerNombreCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblCliente"
+        android:background="@drawable/spinner_background"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/txtrange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerNombreCliente"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <!-- Primer TextView -->
+        <TextView
+            android:id="@+id/lblPolitica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Política:"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:textColor="@color/black"/>
+
+        <!-- Segundo TextView -->
+        <TextView
+            android:id="@+id/txtPolitica"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:hint="Política del Cliente"
+            android:text=""
+            android:padding="8dp"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/dateRangeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtrange"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <!-- Ajustamos el peso de los TextViews para que se distribuyan equitativamente -->
+        <TextView
+            android:id="@+id/textViewFechaInicial"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Fecha Inicial"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="false"
+            android:textColorHint="@android:color/darker_gray"
+            android:background="@drawable/edittext_background"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+
+        <TextView
+            android:id="@+id/textViewFechaFinal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Fecha Final"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="false"
+            android:textColorHint="@android:color/darker_gray"
+            android:background="@drawable/edittext_background"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateRangeLayout"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/botonBusqueda"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Buscar" />
+
+        <Button
+            android:id="@+id/botonImprimir"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Imprimir"/>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/dateRangeLayout"
+        android:layout_marginTop="71dp" />
+
+    <RelativeLayout
+        android:id="@+id/txtrange2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerView">
+
+        <!-- Contenido anterior -->
+        <TextView
+            android:id="@+id/lblTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Total:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/lblTotal"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:text="$0.00"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:background="#E3E305" />
+
+        <!-- LinearLayout para los RadioButtons -->
+        <LinearLayout
+            android:id="@+id/radioGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTotal"
+            android:layout_marginTop="-5dp"
+            android:orientation="horizontal">
+
+            <!-- RadioButton 1 -->
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Opción 1" />
+
+
+        </LinearLayout>
+
+        <!-- LinearLayout para los nuevos elementos -->
+        <LinearLayout
+            android:id="@+id/linearLayoutNewItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radioGroupLayout"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <!-- LinearLayout para lblDias y txtDias -->
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:orientation="horizontal">
+
+                <!-- lblDias -->
+                <TextView
+                    android:id="@+id/lblDias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Días:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <!-- txtDias -->
+                <EditText
+                    android:id="@+id/txtDias"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="number"
+                    android:background="@drawable/edittext_background"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- LinearLayout para lblPagare y spinnerPagare -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- lblPagare -->
+                <TextView
+                    android:id="@+id/lblPagare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="#Pag.:" />
+
+                <!-- Spinner para seleccionar el número de Pagare-->
+                <Spinner
+                    android:id="@+id/spinnerPagare"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinner_background"
+                    android:padding="6dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- lblDias -->
+                <TextView
+                    android:id="@+id/lblPorcentaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="% Int.:" />
+
+                <!-- txtDias -->
+                <EditText
+                    android:id="@+id/txtPorcentaje"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="number"
+                    android:background="@drawable/edittext_background"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/radioGroupLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_below="@id/linearLayoutNewItems"
+            android:orientation="horizontal">
+
+            <!-- RadioButton 1 -->
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:text="Opción 2" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNewItems2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radioGroupLayout2"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <!-- LinearLayout para lblDias y txtDias -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- lblDias -->
+                <TextView
+                    android:id="@+id/lblMaximo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="D.Maximo:" />
+
+                <!-- txtDias -->
+                <EditText
+                    android:id="@+id/txtMaximo"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="number"
+                    android:background="@drawable/edittext_background"
+                    android:padding="8dp"/>
+            </LinearLayout>
+
+
+            <!-- LinearLayout para lblPlazo y txtPlazo -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+
+                <!-- lblPagare -->
+                <TextView
+                    android:id="@+id/lblAbono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="D. abono:" />
+
+                <EditText
+                    android:id="@+id/txtAbono"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- lblDias -->
+                <TextView
+                    android:id="@+id/lblPorcentaje2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="% Int.:" />
+
+                <!-- txtDias -->
+                <EditText
+                    android:id="@+id/txtPorcentaje2"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="number"
+                    android:background="@drawable/edittext_background"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

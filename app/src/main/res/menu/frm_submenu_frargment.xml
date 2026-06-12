@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_logout"
+        android:title="Cerrar Sesion"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_sync"
+        android:title="Sincronización"/>
+    <item
+        android:icon="@drawable/ic_mas"
+        android:id="@+id/nav_cliente"
+        android:title="Cliente"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_documento"
+        android:title="Documento"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_item"
+        android:title="Item facturado"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_pagare1"
+        android:title="Pagare"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_estadistica"
+        android:title="Estadistica"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_ruta"
+        android:title="Ruta"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_mapa"
+        android:title="Mapa"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_respaldo"
+        android:title="Respaldo"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_clienteitem"
+        android:title="Cliente Item"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_consultaR"
+        android:title="Consulta Ruta"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_registro"
+        android:title="Registro Cliente"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_sincRapida"
+        android:title="Sincronizacion Rapida"/>
+    <item
+        android:icon="@drawable/ic_pedido"
+        android:id="@+id/nav_Proforma"
+        android:title="Proforma"/>
+    <item
+        android:icon="@drawable/ic_camara"
+        android:id="@+id/nav_qr"
+        android:title="Escanear QR"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_manual"
+        android:title="Manual de usuario"/>
+</menu>

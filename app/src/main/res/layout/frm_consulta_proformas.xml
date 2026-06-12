@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/background"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <!-- Bloque para número de pedido -->
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="# Proforma : "
+                android:layout_weight=".9"
+                android:textSize="@dimen/font_size_cardView"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtPedidoView"
+                android:layout_width="0dp"
+                android:layout_weight=".8"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="1234" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="Proforma General: "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtPedIntView"
+                android:layout_width="0dp"
+                android:layout_weight="1.1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="1234" />
+
+        </LinearLayout>
+
+
+        <!-- Bloque para cliente -->
+        <LinearLayout
+            android:id="@+id/layoutItem2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem">
+
+            <TextView
+                android:id="@+id/tvCliente"
+                android:layout_width="0dp"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:text="Cliente:"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_cardView" />
+
+            <TextView
+                android:id="@+id/txtClienteView"
+                android:layout_weight="1.6"
+                android:layout_width="0dp"
+                android:textSize="@dimen/font_size_cardView"
+                android:layout_height="wrap_content"
+                android:text="Nombre Cliente" />
+        </LinearLayout>
+
+        <!-- Bloque para total -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutItem3"
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem2"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:weightSum="4">  <!-- Ajustado para sumar todos los pesos de los TextViews -->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="wrap_content"
+                android:text="Fecha: "
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_cardView"/>
+
+            <TextView
+                android:id="@+id/txtFechaView"
+                android:layout_width="0dp"
+                android:layout_weight="1.3"
+                android:layout_marginLeft="16dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="$0.00" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:text="Total: "
+                android:gravity="center"
+                android:textStyle="bold"
+                android:paddingLeft="5dp"
+                android:textSize="@dimen/font_size_cardView" />
+
+            <TextView
+                android:id="@+id/txtTotalView"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="$0.00" />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/layoutItem4"
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:text="Tipo:"
+                android:textSize="@dimen/font_size_cardView"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtEstadoView"
+                android:layout_width="0dp"
+                android:layout_weight=".6"
+                android:textSize="@dimen/font_size_cardView"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:text="Enviado" />
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:text="Lote:"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_cardView" />
+
+            <TextView
+                android:id="@+id/txtLoteView"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_cardView"
+                android:layout_marginLeft="5dp"
+                android:text="$0.00" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="# Factura:"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="@dimen/font_size_cardView" />
+
+            <TextView
+                android:id="@+id/txtFacturaView"
+                android:layout_width="0dp"
+                android:layout_weight=".9"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_cardView"
+                android:layout_marginLeft="5dp"
+                android:text="0" />
+
+
+        </LinearLayout>
+
+        <!-- Bloque para total -->
+        <LinearLayout
+            android:id="@+id/layoutItem5"
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="match_parent"
+                android:text="Observacion:"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_cardView" />
+
+            <TextView
+                android:id="@+id/txtObservacionView"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/font_size_cardView"
+                android:text="prueba" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

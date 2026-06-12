@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:background="@drawable/frmseleccionitem"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp">
+    <TextView
+        android:textSize="@dimen/font_size_Prospectos"
+        android:gravity="start"
+        android:id="@+id/txtCodigoLl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
+    <TextView
+        android:textSize="@dimen/font_size_Prospectos"
+        android:gravity="start"
+        android:id="@+id/txtFechaLl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <TextView
+        android:textSize="@dimen/font_size_Prospectos"
+        android:gravity="start"
+        android:id="@+id/txtEmpleadoLl"
+        android:paddingLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"/>
+</LinearLayout>

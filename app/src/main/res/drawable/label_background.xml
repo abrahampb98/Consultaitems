@@ -1,0 +1,13 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo con un color suave que combina con el degradado -->
+    <solid android:color="#FFF5DA"/> <!-- Un tono más claro del fondo principal -->
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="8dp"/>
+
+    <!-- Borde del label con un tono más oscuro para resaltar -->
+    <stroke android:width="2dp" android:color="#FFD966"/> <!-- Color ligeramente más oscuro para el borde -->
+
+    <!-- Sombra sutil para darle profundidad -->
+    <padding android:left="8dp" android:right="8dp" android:top="4dp" android:bottom="4dp"/>
+</shape>

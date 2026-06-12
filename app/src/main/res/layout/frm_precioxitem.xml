@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TableLayout
+        android:id="@+id/tablePrecios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+        <TableRow android:background="#e0e0e0">
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="Tipo"/>
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="Precios"/>
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="Rentab"/>
+        </TableRow>
+    </TableLayout>
+</ScrollView>

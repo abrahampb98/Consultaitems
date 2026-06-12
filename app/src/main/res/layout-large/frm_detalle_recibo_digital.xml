@@ -1,0 +1,107 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tabla"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/txtTransaccionDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.4"
+            android:text="Transacción"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtBancoDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.1"
+            android:layout_marginLeft="10dp"
+            android:text="Banco"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtDocDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"
+            android:layout_marginLeft="10dp"
+            android:text="# Doc."
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtCtaDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.35"
+            android:layout_marginLeft="10dp"
+            android:text="# Cta."
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtFechaDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.25"
+            android:layout_marginLeft="10dp"
+            android:text="Fecha"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtValorDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:layout_marginLeft="10dp"
+            android:text="Valor"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtConceptoDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.4"
+            android:layout_marginLeft="10dp"
+            android:text="Concepto"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtObservacionDE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.49"
+            android:layout_marginLeft="10dp"
+            android:text="Observación"
+            android:textSize="@dimen/font_size_Recibo"
+            android:textColor="@color/black" />
+
+
+        <ImageView
+            android:id="@+id/eliminarDE"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".54"
+            android:src="@mipmap/ic_eliminar_round" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

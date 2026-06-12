@@ -1,0 +1,210 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintPrinp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <!-- Tu contenido existente -->
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:weightSum="11"
+            android:padding="0dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/txtReferencia"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Item"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/txtDescrip"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:layout_marginLeft="2dp"
+                android:text="Descr"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/txtStock"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:text="1000"
+                android:textSize="@dimen/font_size_small" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:layout_margin="1dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/border" />
+
+                <ImageView
+                    android:id="@+id/StockImageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_buscar2_foreground" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtPrecioSub"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:paddingHorizontal="2dp"
+                android:text="000.000"
+                android:textSize="@dimen/font_size_small" />
+
+
+            <TextView
+                android:id="@+id/txtPrecioCont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.05"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="1dp"
+                android:gravity="center_vertical|right"
+                android:text="000.000"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtPrecioCred"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.05"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="1dp"
+                android:gravity="center_vertical|right"
+                android:text="000.000"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtLSub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="2dp"
+                android:gravity="center_vertical|right"
+                android:text="1.00"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtLCont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="2dp"
+                android:gravity="center_vertical|right"
+                android:text="1.00"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtLoteCred"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".9"
+                android:paddingHorizontal="3dp"
+                android:layout_margin="2dp"
+                android:gravity="center_vertical|right"
+                android:text="1.00"
+                android:textSize="@dimen/font_size_small" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight=".4"
+                android:layout_margin="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/border" />
+
+                <ImageView
+                    android:id="@+id/WebImageViewPV"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_gallery" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight=".4"
+                android:layout_margin="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/border" />
+
+                <ImageView
+                    android:id="@+id/HisotricoImageViewPV"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_historial" />
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

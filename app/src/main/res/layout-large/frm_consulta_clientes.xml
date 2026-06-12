@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    android:background="@drawable/background"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/label_consulta_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consulta de Cliente"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_size_large"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/label_descripcion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:text="Consulta por"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_large"
+            android:layout_marginEnd="8dp" />
+
+        <Spinner
+            android:id="@+id/spnCriteriosC"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/spinner_background"
+            android:layout_weight="2">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/bntAgregarC"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight=".3"
+            android:background="@drawable/ic_busqueda"
+            android:layout_gravity="center">
+        </Button>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:weightSum="2">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".47"
+            android:text="Criterio"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_large"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/txtCriterioC"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.55"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"
+            android:textSize="@dimen/font_size_large"
+            android:layout_marginEnd="8dp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/label_resultados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        android:textStyle="bold"
+        android:textColor="#101010"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/font_size_large"
+        android:layout_marginBottom="4dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutItem3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="6">  <!-- Suma total de pesos -->
+
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Codigo"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="Nombre"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="RazonComercial"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewItemsC"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background"
+        android:textSize="@dimen/font_size_large" />
+
+</LinearLayout>

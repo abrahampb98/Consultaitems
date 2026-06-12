@@ -1,0 +1,75 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Otros elementos de menú -->
+    <group android:id="@+id/menu_group_top">
+
+        <item
+            android:id="@+id/nav_sync"
+            android:title="Sincronización"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_verifica"
+            android:title="Verificación"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </group>
+
+    <group android:id="@+id/menu_group_top2">
+        <!-- Línea separadora -->
+
+        <item
+            android:id="@+id/nav_pagare1"
+            android:title="Pagare"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_pedido"
+            android:title="Pedido"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+
+        <item
+            android:id="@+id/nav_precios"
+            android:title="Precios"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+
+        <item
+            android:id="@+id/nav_item"
+            android:title="Item facturado"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_cliente"
+            android:title="Cliente"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_status"
+            android:title="Status"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_documento"
+            android:title="Documento"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+           <item
+            android:id="@+id/nav_recibo"
+            android:title="Recibo"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <item
+            android:id="@+id/nav_manual"
+            android:title="Manual de usuario"
+            android:textAppearance="?android:textAppearanceLarge" />
+    </group>
+
+    <!-- Elemento de cierre de sesión -->
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar Sesión"
+        android:textAppearance="?android:textAppearanceLarge" />
+
+
+</menu>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Criterios"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        style="@style/BorderedLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4">
+
+        <LinearLayout
+            android:id="@+id/layoutPrincipal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/layout"
+                style="@style/BorderedLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/background"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:text="Referencia: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtRefView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="center"
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="0.8"
+                        android:text="Tipo Prod.: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtProductView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:text="Marca: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_medium"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtMarcaView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="0.8"
+                        android:text="Familia: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtFamiliaView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.65"
+                        android:text="Descripcion: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtDescrpView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.48"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                    <Button
+                        android:id="@+id/btnBusquedaPS"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="0.89"
+                        android:background="@drawable/button_background"
+                        android:text="Buscar"
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                style="@style/BorderedLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.6"
+                        android:text="Marca: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtMarcaSelect"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="19dp"
+                        android:layout_weight="1.4"
+                        android:background="@drawable/edittext_background"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="textNoSuggestions"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="0.8"
+                        android:text="Tipo Prod.: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtProductSelect"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/edittext_background"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="textNoSuggestions"
+                        android:text=""
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.38"
+                        android:text="Descripcion: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtDescripcionSelect"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.64"
+                        android:background="@drawable/edittext_background"
+                        android:cursorVisible="true"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:longClickable="true"
+                        android:text=""
+                        android:textIsSelectable="true"
+                        android:textSize="@dimen/font_size_PreciosStock" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/lblBusqueda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Detalles"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint2"
+        style="@style/BorderedLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblBusqueda">
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingStart="10dp"
+                android:text="Referencia "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:text="Sku "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:text="Stock "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="0.75"
+                android:text="Prec. Sub. "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.7"
+                android:paddingStart="5dp"
+                android:text="Contado "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:paddingStart="5dp"
+                android:text="Credito "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.6"
+                android:text="Publico "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:text="Publ.+Iva"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:text="Peso(Kg) "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="L-Sub "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="L-Cont "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="L-Cred"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="L-Pub"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_size_PreciosStock"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPS"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

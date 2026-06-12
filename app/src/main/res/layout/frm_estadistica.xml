@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- Contenedor de selección de fechas y botón de búsqueda -->
+    <LinearLayout
+        android:id="@+id/layoutFechas"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:weightSum="5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Fecha Inicial"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/txtFechaInicialSP"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/font_size_PreciosStock"
+            android:gravity="center"
+            android:focusable="false"
+            android:background="@drawable/edittext_background"
+            android:hint="Fecha Inicial"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Fecha Final"
+            android:layout_gravity="right"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/txtFechaFinalSP"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:gravity="center"
+            android:textSize="@dimen/font_size_PreciosStock"
+            android:background="@drawable/edittext_background"
+            android:hint="Fecha Final"/>
+
+        <Button
+            android:id="@+id/btnBusquedaSP"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/font_size_PreciosStock"
+            android:background="@drawable/button_background"
+            android:text="Buscar"/>
+    </LinearLayout>
+
+    <!-- Tarjeta 1: Pedidos -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPedidos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintWidth_percent="0.32"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutFechas"
+        app:layout_constraintEnd_toStartOf="@id/cardVentas">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pedidos"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtCantidadPedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#00308F"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txtMontoPedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#D32F2F"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 2: Ventas -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardVentas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintWidth_percent="0.32"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toEndOf="@id/cardPedidos"
+        app:layout_constraintTop_toBottomOf="@id/layoutFechas"
+        app:layout_constraintEnd_toStartOf="@id/cardMetas"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ventas"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtCantidadVentas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#00308F"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txtMontoVentas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#388E3C"/>
+
+            <TextView
+                android:id="@+id/txtMargenVentas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:textColor="#1B5E20"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMetas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintWidth_percent="0.32"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toEndOf="@id/cardVentas"
+        app:layout_constraintTop_toBottomOf="@id/layoutFechas"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meta"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtSubototalMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textColor="#1565C0"/>
+
+            <TextView
+                android:id="@+id/txtMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"/>
+
+            <TextView
+                android:id="@+id/txtDiferenciaMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#E65100"/>
+
+            <TextView
+                android:id="@+id/txtProcedimientoMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:textColor="#00308F"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/txtDescripcionMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#D32F2F"/>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 3: Clientes -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardClientes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardMetas"
+        app:layout_constraintBottom_toTopOf="@id/cardItems">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/charClientes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta 4: Ítems -->
+    <androidx.cardview.widget.CardView
+    android:id="@+id/cardItems"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:layout_constraintWidth_percent="1"
+    app:layout_constraintHeight_percent="0.25"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardClientes"
+        app:layout_constraintBottom_toTopOf="@id/cardMarcas">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/charItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMarcas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardItems"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/charMarcas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

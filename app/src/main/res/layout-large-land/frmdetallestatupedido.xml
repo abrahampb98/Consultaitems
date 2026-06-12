@@ -1,0 +1,178 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="12">
+
+
+            <TextView
+                android:id="@+id/txtStatusSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:text="Status "
+                android:textSize="14dp"
+                android:textColor="@color/black"
+          />
+
+            <TextView
+                android:id="@+id/txtPedidoSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:text="#PedGen/Orig.	 "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+           />
+
+            <TextView
+                android:id="@+id/txtClienteSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.1"
+                android:text="Cliente "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:id="@+id/txtDispSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:text="Dispos. "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+               />
+
+
+            <TextView
+                android:id="@+id/txtFechaSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Fecha Pedido "
+                android:textSize="14dp"
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:id="@+id/txtBodegaSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:text="Bodega "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+              />
+
+            <TextView
+                android:id="@+id/txtSriSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="SRI "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+              />
+
+            <TextView
+                android:id="@+id/txtGrSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="#GR "
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+            />
+
+
+            <TextView
+                android:id="@+id/txtFechafSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:text="Fecha Factura"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTotalSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:gravity="center"
+                android:text="Total Pedido"
+                android:textSize="14dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTotalfSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:text="Total Factura"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+           />
+
+
+            <TextView
+                android:id="@+id/txtObservacionSP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:text="Observacion"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+              />
+
+        </LinearLayout>
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/layoutItem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCCCCC"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

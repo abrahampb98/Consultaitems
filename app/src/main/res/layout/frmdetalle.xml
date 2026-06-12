@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <!-- Tu contenido existente -->
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <!-- Agrega otros elementos de la fila, como TextViews u otros elementos según tus necesidades -->
+
+            <TextView
+                android:id="@+id/txtCodigo"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:text="Codigo"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtReferenciaDet"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:text="Item"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:text="Descripcion"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtCant"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:text="100"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtPrec"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:text="subdist"
+                android:textSize="16dp"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/txtsub"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Precio 5"
+                android:textSize="16dp"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/txtLoteD"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:text="0.00"
+                android:textSize="@dimen/font_size_small"
+                android:gravity="center_vertical|right"/>
+
+
+            <!-- Agregamos el icono de eliminar -->
+            <ImageView
+                android:id="@+id/eliminarImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_eliminar_round" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Línea adicional -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"/>
+
+</LinearLayout>

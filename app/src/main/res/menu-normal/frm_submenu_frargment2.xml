@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_logout2"
+        android:title="Cerrar Sesion"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_sync2"
+        android:title="Sincronización"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_clienteitem2"
+        android:title="Cliente Item"/>
+    <item
+        android:icon="@drawable/ic_items"
+        android:id="@+id/nav_documento2"
+        android:title="Documento"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_respaldo2"
+        android:title="Respaldo"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_registro"
+        android:title="Registro Cliente"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_qr"
+        android:title="Escanear QR"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_inventario"
+        android:title="Escanear Inventario"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_prospecto"
+        android:title="Prospecto / Potencial"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_llamada"
+        android:title="Llamada"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_actividad"
+        android:title="Actividades"/>
+    <item
+        android:icon="@drawable/ic_sync"
+        android:id="@+id/nav_auditar"
+        android:title="Auditar Inventario"/>
+    <item
+        android:icon="@drawable/ic_manual"
+        android:id="@+id/nav_manual2"
+        android:title="Manual de usuario"/>
+</menu>

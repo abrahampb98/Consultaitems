@@ -1,0 +1,139 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="10">  <!-- Suma total de pesos -->
+
+                <TextView
+                    android:id="@+id/txtNum"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".4"
+                    android:gravity="center"
+                    android:text="#"
+                    android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtCodigo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:gravity="center_vertical|left"
+                android:text="Codigo"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtReferenciaDet"
+                android:layout_width="0dp"
+                android:layout_height="17dp"
+                android:layout_weight="2.8"
+                android:layout_marginLeft="10dp"
+                android:paddingRight="5dp"
+                android:layout_gravity="center"
+                android:text="Refere"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtDescItem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:gravity="center"
+                android:text="0.00"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtCant"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:paddingLeft="5dp"
+                android:gravity="center"
+                android:text="100"
+                android:textSize="@dimen/font_size_small"/>
+
+            <TextView
+                android:id="@+id/txtPrec"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                android:text="precio"
+                android:textSize="@dimen/font_size_small"
+                android:gravity="center_vertical|right"/>
+
+            <TextView
+                android:id="@+id/txtsub"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:text="Preci"
+                android:textSize="@dimen/font_size_small"
+                android:gravity="center|right"/>
+
+            <TextView
+                android:id="@+id/txtConDesc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:text="0.00"
+                android:textSize="@dimen/font_size_small"
+                android:gravity="center_vertical|right"/>
+
+                <TextView
+                    android:id="@+id/txtLoteD"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".7"
+                    android:text="0.00"
+                    android:textSize="@dimen/font_size_small"
+                    android:gravity="center_vertical|right"/>
+
+            <!-- ImageView con peso asignado para controlar su tamaño relativo -->
+                <ImageView
+                    android:id="@+id/eliminarImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".41"
+                    android:src="@mipmap/ic_eliminar_round" />
+        </LinearLayout>
+
+
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@+id/layoutItem"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCCCCC"/>
+            </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

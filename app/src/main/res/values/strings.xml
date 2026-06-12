@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gestion Vendedores</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="str_ActualizaCliente">775</string>
+    <string name="str_Avances">2608</string>
+    <string name="str_cadena">2,%1$d,1</string>
+    <string name="str_CcValidaIdentificacion">1197</string>
+    <string name="str_cliente">1160</string>
+    <string name="str_ClienteItem">512</string>
+    <string name="str_ClienteRestringido">1275</string>
+    <string name="str_Clientes">881</string>
+    <string name="str_ConsultaGestionVenta">1648</string>
+    <string name="str_ConsultaLlamadas">1660</string>
+    <string name="str_ConsultaMultiple">883</string>
+    <string name="str_conteo">563</string>
+    <string name="str_direction" translatable="false">--</string>
+    <string name="str_Documento">2576</string>
+    <string name="str_ente">1199</string>
+    <string name="str_FaAccesoUsuario">2329</string>
+    <string name="str_FaClaveJefeAlmacen">1300</string>
+    <string name="str_factura">937</string>
+    <string name="str_FacturaPrecios">943</string>
+    <string name="str_FaFactura">951</string>
+    <string name="str_FaFacturaDinamico">958</string>
+    <string name="str_FaFacturaEncuesta">2561</string>
+    <string name="str_FaFacturaMargenRentabilidad">2590</string>
+    <string name="str_FaFacturaPesos">2336</string>
+    <string name="str_FaFacturaPorcDescto">957</string>
+    <string name="str_FaFacturaRegalo">2613</string>
+    <string name="str_FaPermisoVendedorClienteMayorista">1302</string>
+    <string name="str_FaProforma">935</string>
+    <string name="str_FaProformadinamico">934</string>
+    <string name="str_FaProformaPedido">2503</string>
+    <string name="str_FaTransporteCliente">2602</string>
+    <string name="str_GestionProyecto">5</string>
+    <string name="str_GestionProyectoXML">34</string>
+    <string name="str_id">412</string>
+    <string name="str_informe">1396</string>
+    <string name="str_ipLocal">168.200.1.3</string>
+    <string name="str_ipPublica">181.39.14.139</string>
+    <string name="str_itemCliente">2516</string>
+    <string name="str_ListadoPrecios">812</string>
+    <string name="str_LlamadaXML">1653</string>
+    <string name="str_maps" translatable="false">--</string>
+    <string name="str_OpenIA" translatable="false">--</string>
+    <string name="str_pedido">195</string>
+    <string name="str_Politica">881</string>
+    <string name="str_precios">512</string>
+    <string name="str_PreciosxItem">2571</string>
+    <string name="str_Proforma">933</string>
+    <string name="str_Prospectos">811</string>
+    <string name="str_ProspectosXML">2603</string>
+    <string name="str_rentabilidad">1776</string>
+    <string name="str_ruta">555</string>
+    <string name="str_rutaxml">568</string>
+    <string name="str_SecFactura">865</string>
+    <string name="str_SecProforma">865</string>
+    <string name="str_Seguros">2332</string>
+    <string name="str_Status">2558</string>
+    <string name="str_tablas">512</string>
+    <string name="str_Tarifa">2337</string>
+    <string name="str_TipoTarjeta">1760</string>
+    <string name="str_TransaccionFactura">860</string>
+    <string name="str_Trasporte">2602</string>
+    <string name="str_usuarios">512</string>
+    <string name="str_verificaStock">740</string>
+</resources>

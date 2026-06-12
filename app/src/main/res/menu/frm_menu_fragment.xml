@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_pedido"
+        android:icon="@drawable/ic_pedido"
+        android:title="Pedido" />
+
+    <item
+        android:id="@+id/nav_precios"
+        android:icon="@drawable/ic_precios"
+        android:title="Precios" />
+
+    <item
+        android:id="@+id/nav_status"
+        android:icon="@drawable/ic_status"
+        android:title="Status" />
+
+    <item
+        android:id="@+id/nav_recibo"
+        android:icon="@drawable/ic_recibo"
+        android:title="Recibo" />
+
+
+    <item
+        android:id="@+id/nav_mas_opciones"
+        android:icon="@drawable/ic_mas"
+        android:title="Más" />
+</menu>

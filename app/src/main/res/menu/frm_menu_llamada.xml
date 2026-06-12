@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bntNuevoLl"
+        android:title="Nuevo"/>
+    <item
+        android:id="@+id/btnConsultarLl"
+        android:title="Consultar"/>
+    <item
+        android:id="@+id/btnEliminarLl"
+        android:title="Eliminar"/>
+    <item
+        android:id="@+id/btnReporteLl"
+        android:title="Reporte"/>
+</menu>

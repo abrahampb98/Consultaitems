@@ -1,0 +1,32 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+
+    <item
+        android:id="@+id/nav_Proforma"
+        android:icon="@drawable/ic_pedido"
+        android:title="Proforma" />
+
+    <item
+        android:id="@+id/nav_precios"
+        android:icon="@drawable/ic_precios"
+        android:title="Precios" />
+
+    <item
+        android:id="@+id/nav_item"
+        android:icon="@drawable/ic_items"
+        android:title="Item facturado" />
+
+
+    <item
+        android:id="@+id/nav_cliente"
+        android:icon="@drawable/ic_cliente"
+        android:title="Cliente" />
+
+
+
+    <item
+        android:id="@+id/nav_mas_opciones2"
+        android:icon="@drawable/ic_mas"
+        android:title="Más" />
+</menu>

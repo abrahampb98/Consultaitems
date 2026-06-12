@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frmseleccionitem"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Tu contenido existente -->
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <!-- Agrega otros elementos de la fila, como TextViews u otros elementos según tus necesidades -->
+            <TextView
+                android:id="@+id/txtReferencia"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:padding="0dp"
+                android:text="Item"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtDescrip"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:padding="0dp"
+                android:text="Descr"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtStock"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:gravity="left"
+                android:text="100"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtPrecioSub"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="subdist"
+                android:layout_marginStart="8dp"
+                android:textSize="16dp"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/txtPrecioCont"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="Precio 5"
+                android:textSize="16dp"
+                android:layout_marginStart="8dp"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/txtPrecioCred"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio"
+                android:textSize="16dp"
+                android:layout_marginStart="8dp"
+                android:gravity="left"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight=".4"
+                android:layout_marginLeft="10dp">
+
+                <!-- ImageView con el borde -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/border" />
+
+                <!-- Agregar otra imagen en el centro -->
+                <ImageView
+                    android:id="@+id/WebImageViewPV"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_gallery" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Línea adicional -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"/>
+
+</LinearLayout>

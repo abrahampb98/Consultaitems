@@ -1,0 +1,449 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-42dp">
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Criterios"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint"
+                style="@style/BorderedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="-42dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+
+
+                    <LinearLayout
+                        style="@style/BorderedLayout"
+                        android:id="@+id/layout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/layout2">
+
+                        <!-- Bloque para número de pedido -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:layout_gravity="center"
+                                android:text="Referencia: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtRefView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"/>
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:text="Tipo Prod.: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtProductView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:gravity="center"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:layout_gravity="center"
+                                android:text="Marca: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtMarcaView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="" />
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:text="Familia: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtFamiliaView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:gravity="center"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.7"
+                                android:layout_gravity="center"
+                                android:text="Descripcion: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/txtDescrpView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.7"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="" />
+
+                            <Button
+                                android:id="@+id/btnBusquedaPS"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".6"
+                                android:layout_marginLeft="10dp"
+                                android:text="Buscar">
+                            </Button>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- finaliza -->
+
+                    <LinearLayout
+                        style="@style/BorderedLayout"
+                        android:id="@+id/layout2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:layout_editor_absoluteX="553dp"
+                        tools:layout_editor_absoluteY="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layout"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <!-- Bloque para número de pedido -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".6"
+                                android:layout_gravity="center"
+                                android:text="Marca: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtMarcaSelect"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.4"
+                                android:layout_marginLeft="15dp"
+                                android:gravity="center"
+                                android:text="" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".8"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:text="Tipo Prod.: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtProductSelect"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:gravity="center"
+                                android:inputType="textPersonName|textNoSuggestions"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".5"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:text="Descripcion: "
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:textStyle="bold" />
+
+
+                            <EditText
+                                android:id="@+id/txtDescripcionSelect"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.5"
+                                android:inputType="textMultiLine|textNoSuggestions"
+                                android:text=""
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <TextView
+                android:id="@+id/lblBusqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Detalles"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraint" />
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint2"
+                style="@style/BorderedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblBusqueda"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:id="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Marca "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.1"
+                        android:text="Referencia "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".3"
+                        android:text="Sku "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3.1"
+                        android:layout_marginLeft="20dp"
+                        android:text="Descripcion "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Stock "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:text="Contado "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".7"
+                        android:text="Credito "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".6"
+                        android:text="Publico "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:text="Publ.+Iva"
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:text="Peso(Kg) "
+                        android:textSize="@dimen/font_size_PreciosStock"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

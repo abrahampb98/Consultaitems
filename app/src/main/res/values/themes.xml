@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="MenuTextLarge">
+        <item name="android:textSize">20sp</item> <!-- Tamaño del texto grande -->
+    </style>
+
+    <style name="BorderedLayout">
+        <item name="android:background">@drawable/border</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+
+</resources>

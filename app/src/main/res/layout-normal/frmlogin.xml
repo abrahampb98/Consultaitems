@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:ignore="MissingDefaultResource"> <!-- Fondo degradado -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Imagen centrada -->
+        <ImageView
+            android:id="@+id/imagen_central"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/ic_logo_cotzul_foreground"
+            android:scaleType="fitCenter" />
+
+        <!-- EditText para el nombre de usuario -->
+        <EditText
+            android:id="@+id/txtUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Usuario"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:background="@drawable/edittext_background"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:nextFocusForward="@+id/txtContrasena" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <!-- EditText para la contraseña -->
+            <EditText
+                android:id="@+id/txtContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:padding="16dp"
+                android:textSize="20sp"
+                android:inputType="textPassword"
+                android:background="@drawable/edittext_background"
+                android:paddingEnd="48dp"
+                android:imeOptions="actionDone"
+                android:nextFocusForward="@id/btnLogin" />
+
+            <!-- Botón para mostrar/ocultar la contraseña -->
+            <ImageButton
+                android:id="@+id/btnMostrarContrasena"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/ic_invisible"
+                android:scaleType="centerInside"
+                android:contentDescription="text"/>
+        </FrameLayout>
+
+        <!-- Spinner de opciones -->
+        <Spinner
+            android:id="@+id/spinnerOpciones"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_background"
+            android:padding="16dp" />
+
+        <!-- Botón de login -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="32dp"
+            android:textSize="18sp"
+            android:text="Login"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_background" />
+    </LinearLayout>
+</ScrollView>
