@@ -13,8 +13,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imagen_central"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
             android:layout_marginTop="40dp"
             android:src="@mipmap/ic_logo_cotzul_foreground"
             android:scaleType="fitCenter"/>

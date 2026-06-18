@@ -69,6 +69,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.Consultaitems.R
 import com.example.Consultaitems.utils.parser.XMlParserRecibo
 import com.example.Consultaitems.utils.parser.XmlInforme
@@ -206,7 +207,6 @@ import java.math.BigDecimal
 
                 // Llena los campos de edición con los datos del ítem seleccionado
 
-
                 txtDocRD.setText(item.Doc)
                 txtCtaRD.setText(item.Cuenta)
                 txtFechaFactura.setText(item.Fecha)
@@ -219,6 +219,9 @@ import java.math.BigDecimal
                 itemEnEdicion = position
             }
         )
+
+         val divider = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+         recyclerRD.addItemDecoration(divider)
 
 
 
@@ -256,7 +259,15 @@ import java.math.BigDecimal
         }
 
         btnGuardar.setOnClickListener {
-            fnMostrarDialogoDeConfirmacion()
+            if (fnExisteDetalleEnPantalla()) {
+                if (fnAgregarDetallePantallaParaGuardar()) {
+                    fnGuardadoAutomaticoCobranza()
+                    fnMostrarDialogoDeConfirmacion()
+                }
+            } else {
+                fnGuardadoAutomaticoCobranza()
+                fnMostrarDialogoDeConfirmacion()
+            }
         }
 
         btnEnviar.setOnClickListener{
@@ -1424,5 +1435,85 @@ import java.math.BigDecimal
         val contentView = activity.findViewById<View>(android.R.id.content)
         contentView.requestLayout()
     }
+
+     private fun fnExisteDetalleEnPantalla(): Boolean {
+         if (spTransaccion.selectedItem != 0 && spBanco.selectedItem != 0 && txtDocRD.text.isNotEmpty()){
+             return true
+         }else{
+             spTransaccion.setSelection(0)
+             spBanco.setSelection(0)
+             txtDocRD.setText("")
+             txtConceptoRD.setText("")
+             txtObservacionRD.setText("")
+             return false
+         }
+     }
+
+     private fun fnAgregarDetallePantallaParaGuardar(): Boolean {
+
+         if (adaptadorDetalle.itemCount >= 10) {
+             return true
+         } else {
+             if (fnVerificarControles()) {
+                 val nuevoItem = Recibo(
+                     spTransaccion.selectedItem.toString(),
+                     spBanco.selectedItem.toString().split(" - ")[0].trimEnd(),
+                     txtDocRD.text.toString(),
+                     txtCtaRD.text.toString().ifEmpty { "0" },
+                     txtFechaFactura.text.toString(),
+                     txtValorRD.text.toString(),
+                     txtConceptoRD.text.toString(),
+                     txtObservacionRD.text.toString(),
+                     ba_codigo,
+                     tr_codigo.toInt(),
+                     bc_codigo.toString().toInt()
+                 )
+
+                 itemEnEdicion?.let { indiceEdicion ->
+                     // Si estamos en modo de edición
+                     if (!fnVerificarDuplicados(nuevoItem, indiceEdicion)) {
+                         todosLosItemsDet[indiceEdicion] = nuevoItem
+                         itemEnEdicion = null
+                     } else {
+                         showToast("El documento ya ha sido agregado")
+                         return false
+                     }
+                 } ?: run {
+                     // Si no estamos en modo de edición
+                     if (!fnVerificarDuplicados(nuevoItem)) {
+                         todosLosItemsDet.add(nuevoItem)
+                     } else {
+                         showToast("El documento ya ha sido agregado")
+                         return false
+                     }
+                 }
+
+                 recyclerRD.adapter = adaptadorDetalle
+                 recyclerRD.layoutManager = LinearLayoutManager(requireContext())
+
+                 adaptadorDetalle.notifyDataSetChanged()
+
+                 txtDocRD.text.clear()
+                 txtFechaFactura.text.clear()
+                 txtValorRD.text.clear()
+                 txtObservacionRD.text.clear()
+                 spTransaccion.setSelection(0)
+                 spBanco.setSelection(0)
+                 txtConceptoRD.setText("")
+                 txtObservacionRD.setText("")
+
+                 fnCalcularTotales()
+                 fnOcultarTeclado()
+                 fnGuardadoAutomaticoCobranza()
+                 return true
+             }
+         }
+
+         return false
+     }
+
+
+
+
 
 }

@@ -5,11 +5,13 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.Consultaitems.R
 import com.example.Consultaitems.ui.fragments.frmReciboDigital
+import java.util.Locale
 
 class AdaptadorRecibo(
     private val activity: frmReciboDigital,
@@ -30,21 +32,34 @@ class AdaptadorRecibo(
 
         holder.bind(item)
 
-        // Determinar si el elemento actual está seleccionado
-        val isSelected = selectedPositions.contains(position)
-
-        // Cambia el estado seleccionado del rootLayout
-        holder.itemView.isSelected = isSelected
+        holder.itemView.isSelected = selectedPositions.contains(position)
 
         holder.itemView.setOnClickListener(DoubleClickListener(
-            onDoubleClick = {
-                doubleClickListener(item, position)
+            onDoubleClick = { _ ->
+                val realPosition = holder.bindingAdapterPosition
+
+                if (realPosition != RecyclerView.NO_POSITION) {
+                    val itemActual = datos[realPosition]
+
+                    seleccionarFila(realPosition)
+
+                    // Esto asegura que la fila seleccionada y los datos cargados sean los mismos
+                    itemClickListener.onItemClick(itemActual, realPosition)
+
+                    // Aquí haces la edición
+                    doubleClickListener(itemActual, realPosition)
+                }
             },
-            onSingleClick = {
-                selectedPositions.clear()
-                selectedPositions.add(position)
-                notifyDataSetChanged()
-                itemClickListener.onItemClick(item, position)
+            onSingleClick = { _ ->
+                val realPosition = holder.bindingAdapterPosition
+
+                if (realPosition != RecyclerView.NO_POSITION) {
+                    val itemActual = datos[realPosition]
+
+                    seleccionarFila(realPosition)
+
+                    itemClickListener.onItemClick(itemActual, realPosition)
+                }
             }
         ))
     }
@@ -74,31 +89,40 @@ class AdaptadorRecibo(
             txtValorDE.text = item.Valor
             txtConceptoDE.text = item.Concepto
             txtObservacionDE.text = item.Observacion
-
-
         }
         init {
 
             // Agregar un click listener a la imagen de eliminar
             eliminarImageView.setOnClickListener {
-                val position = adapterPosition
+                val position = bindingAdapterPosition
+
                 if (position != RecyclerView.NO_POSITION) {
                     fnEliminarItem(position)
-                    notifyDataSetChanged()
                     activity.fnCalcularTotales()
-
                 }
             }
         }
 
     }
 
+    private fun seleccionarFila(position: Int) {
+        val posicionAnterior = selectedPositions.firstOrNull()
+
+        selectedPositions.clear()
+        selectedPositions.add(position)
+
+        if (posicionAnterior != null && posicionAnterior != position) {
+            notifyItemChanged(posicionAnterior)
+        }
+
+        notifyItemChanged(position)
+    }
 
     private fun fnEliminarItem(position: Int) {
         datos.removeAt(position)
+        selectedPositions.remove(position)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, datos.size)
-
     }
 
 

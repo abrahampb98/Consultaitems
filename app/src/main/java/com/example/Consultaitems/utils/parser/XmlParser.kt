@@ -144,7 +144,7 @@ class XMLParser {
                             "ps_fechaing", "tt_fechaing","td_fechaing", "pz_codigo", "tt_codigo","tt_descripcion","tt_peso","tt_tarifa1","tt_tarifa2",
                             "ci_codigo", "ci_descripcion", "tt_codigoA", "cb_descripcionA", "cb_monto","cl_lopdp","cl_lopdpusuarioing","cl_campania",
                             "cb_montocp","cb_margen","cb_fechaing", "cb_tipo", "cb_linea", "cb_cantidad","pr_codigo","pr_descripcion", "pr_saldo",
-                            "cb_precio", "it_costopromedio", "pv_precio7","ma_fechaing", "ma_codigo", "ma_descripcion", "cl_orden", "it_regalo",
+                            "cb_precio", "it_costopromedio", "pv_precio7","ma_fechaing", "ma_codigo", "ma_descripcion", "cl_orden", "it_regalo","cl_seguimiento",
                             "cl_fono", "cl_direccion", "tr_descripcion", "ba_codigo", "ba_descripcion","bc_numcuenta", "mg_codigo", "mg_margen",
                             "rv_fechainicial", "rv_fechafinal", "rv_linea", "rv_zona", "rv_monto", "rv_tipo", "rv_distancia", "rv_dia", "rv_telefono",
                             "cc_cupoasignado", "cc_cupodisponible", "rv_visita", "rv_cobro", "rv_venta","rv_estado", "cl_latitud","cl_longitud","ve_preciovta",

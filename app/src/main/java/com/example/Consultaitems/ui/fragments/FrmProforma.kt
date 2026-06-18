@@ -523,6 +523,25 @@ class frmProformaA : Fragment(), MiAdaptadorRefProf.OnItemClickListener, MiAdapt
             }
         }
 
+        spinnerBodega.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val item = parent.getItemAtPosition(position) as? SpinnerItem
+                bodega = item?.codigo ?: "0"
+
+                if (vgsOpcionMenu == "I") {
+                    fnObtenerSecuencia()
+                    runCatching {
+                        llenarControles.fnLLenarSpinnerFormaPago(spinnerFormaPag, bodega)
+                    }
+                    if (bodega == "1") {
+                        spinnerFormaPag.setSelection(3)
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
         return view
     }
 
@@ -948,25 +967,6 @@ class frmProformaA : Fragment(), MiAdaptadorRefProf.OnItemClickListener, MiAdapt
     private fun fnLLenarControles(){
         llenarControles.fnLLenarSpinner(spinnerItem, "fa_ws_tipoDescuentoPedido")
         llenarControles.fnLLenarSpinnerBodega(spinnerBodega, "ve_ws_vendedor")
-
-        spinnerBodega.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val item = parent.getItemAtPosition(position) as? SpinnerItem
-                bodega = item?.codigo ?: "0"
-
-                if (vgsOpcionMenu == "I") {
-                    fnObtenerSecuencia()
-                    runCatching {
-                        llenarControles.fnLLenarSpinnerFormaPago(spinnerFormaPag, bodega)
-                    }
-                    if (bodega == "1") {
-                        spinnerFormaPag.setSelection(3)
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
 
         margen = llenarControles.fnObtenerMargen()
 

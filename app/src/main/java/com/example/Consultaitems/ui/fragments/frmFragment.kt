@@ -11,6 +11,7 @@ import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
@@ -27,13 +28,17 @@ import com.example.Consultaitems.data.database.SqLiteOpenHelper
 import com.example.Consultaitems.network.SolicitudSoap
 import com.example.Consultaitems.ui.activities.frmLogin
 import com.example.Consultaitems.utils.cls.ClsLLenarControles
+import com.example.Consultaitems.utils.cls.clsObtenerDatos
 import com.example.Consultaitems.utils.parser.XmlSincronizacion
+import com.example.Consultaitems.utils.parser.xmlParserRuta
+import com.example.Consultaitems.utils.parser.xmlRutas
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.net.URL
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import javax.net.ssl.HttpsURLConnection
@@ -68,7 +73,10 @@ class frmPrincipalF : AppCompatActivity() {
     private val frmAuditar: FrmAuditarInventario by lazy { FrmAuditarInventario() }
     private val frmPreciosyStockVertical : frmPreciosyStockVertical by lazy { frmPreciosyStockVertical() }
 
-
+    private lateinit var database: SQLiteDatabase
+    private lateinit var ClaseXml: xmlRutas
+    var fechaIni = ""
+    var fechaFin = ""
     private var activeFragment: Fragment? = null
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var llenarControles: ClsLLenarControles
@@ -500,8 +508,12 @@ class frmPrincipalF : AppCompatActivity() {
             builder.setMessage("¿Está seguro de que desea sincronizar los datos?")
                 .setPositiveButton("Sí") { dialog, _ ->
                     dialog.dismiss()
-                    val progressDialog = showProgressDialog()
-                    MiAsyncTask(progressDialog).execute()
+                   if (fnVerificarDia()){
+                       fnEnviarRutas()
+                   }else{
+                       val progressDialog = showProgressDialog()
+                       fnSincronizacion(progressDialog)
+                   }
                 }
                 .setNegativeButton("Cancelar") { dialog, _ ->
                     dialog.dismiss()
@@ -519,6 +531,92 @@ class frmPrincipalF : AppCompatActivity() {
         progressDialog.setCancelable(false)
         progressDialog.show()
         return progressDialog
+    }
+
+    private fun fnVerificarDia(): Boolean {
+        val calendar = Calendar.getInstance()
+        return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY
+    }
+
+    fun fnObtenerFechas() {
+        val semana = llenarControles.fnFechaRutaVigente()
+
+        if (semana != null) {
+            fechaIni = semana.inicial
+            fechaFin = semana.final
+        }
+    }
+
+    private fun fnEnviarRutas(){
+        val progressDialog = showProgressDialog()
+        fnObtenerFechas()
+
+        ClaseXml = xmlRutas(this)
+
+        val cadena = ClaseXml.fnObtenerRutas(fechaIni, fechaFin)
+        val id = getString(R.string.str_rutaxml).toInt()
+
+        database = dbHelper.writableDatabase
+
+        clsObtenerDatos(
+            context = this,
+            solicitudSoap = solicitudSoap,
+            id = id,
+            cadena = cadena,
+            onSuccess = { xml ->
+                if (!xml.isNullOrBlank()) {
+                     xmlParserRuta.parseAndUpdateDocumentCode(
+                         xml,
+                        database,
+                        this
+                    )
+                }
+                fnSincronizacion(progressDialog)
+
+            },
+            onError = { ex ->
+                progressDialog.dismiss()
+            }
+        ).execute()
+    }
+
+    private fun fnSincronizacion(progressDialog: ProgressDialog){
+        var datosInsertados: String = ""
+
+        val cadena = getString(R.string.str_cadena, usuario)
+        val id = getString(R.string.str_id).toInt()
+
+        database = dbHelper.writableDatabase
+
+        clsObtenerDatos(
+            context = this,
+            solicitudSoap = solicitudSoap,
+            id = id,
+            cadena = cadena,
+            onSuccess = { xml ->
+                if (!xml.isNullOrBlank()) {
+                    XMLParser.parseAndInsertData(xml, database) { insertedData ->
+                        datosInsertados = insertedData
+                    }
+                }
+                progressDialog.dismiss()
+                fnAlertDialog("Los datos se sincronizaron correctamente")
+
+            },
+            onError = { ex ->
+                progressDialog.dismiss()
+                fnAlertDialog("Error en la sincronizacion")
+            }
+        ).execute()
+    }
+
+    fun fnAlertDialog(mensaje: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Sistema")
+            .setMessage(mensaje)
+            .setPositiveButton("OK") { dialogInterface, _ -> dialogInterface.dismiss() }
+            .show()
+            .show()
     }
 
     private inner class MiAsyncTask(private val progressDialog: ProgressDialog) :
