@@ -44,7 +44,7 @@
     <string name="str_ListadoPrecios">812</string>
     <string name="str_LlamadaXML">1653</string>
     <string name="str_maps" translatable="false">--</string>
-    <string name="str_OpenIA" translatable="false">--</string>
+    <string name="str_OpenIA">1</string>
     <string name="str_pedido">195</string>
     <string name="str_Politica">881</string>
     <string name="str_precios">512</string>
