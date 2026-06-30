@@ -1,6 +1,7 @@
 package com.example.Consultaitems.ui.fragments
 
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -520,18 +521,28 @@ class FrmRuta: Fragment(), AdaptadorRutas.OnItemClickListener, AdaptadorRutaNuev
         if (isNetworkAvailable(requireContext())) {
             val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
             builder.setTitle("Confirmar envío")
-            builder.setMessage("¿Desea enviar el pedido?")
+            builder.setMessage("¿Desea enviar los datos?")
             builder.setPositiveButton("Sí") { dialog, which ->
                 try {
                     ClaseXml = xmlRutas(requireContext())
                     solicitudSoap = SolicitudSoap(requireContext())
-                    MiAsyncTask().execute()
+                    val progressDialog = showProgressDialog()
+                    MiAsyncTask(progressDialog).execute()
                 } catch (e: Exception) {
                     //Log.e("UpdateError", "Error during update: ${e.message}")
                     e.printStackTrace()
                 }
             }
+            builder.show()
         }
+    }
+
+    private fun showProgressDialog(): ProgressDialog {
+        val progressDialog = ProgressDialog(requireContext())
+        progressDialog.setMessage("Enviando...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+        return progressDialog
     }
 
 
@@ -542,7 +553,7 @@ class FrmRuta: Fragment(), AdaptadorRutas.OnItemClickListener, AdaptadorRutaNuev
         return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
 
-    private inner class MiAsyncTask() :
+    private inner class MiAsyncTask(private val progressDialog: ProgressDialog) :
         AsyncTask<Void, Void, String>() {
 
         private lateinit var database: SQLiteDatabase
@@ -581,6 +592,7 @@ class FrmRuta: Fragment(), AdaptadorRutas.OnItemClickListener, AdaptadorRutaNuev
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             if (result != null) {
+                progressDialog.dismiss()
                 showResultDialog(ruta)
             }
         }

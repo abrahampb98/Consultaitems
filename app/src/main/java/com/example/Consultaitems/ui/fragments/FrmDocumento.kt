@@ -52,7 +52,7 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
-private const val URL_DOC = "http://181.39.14.142/siteWeb02/de/"
+private const val URL_DOC = "https://app.cotzul.com/sitenet/de/autorizado"
 
 class frmDocumento :
     Fragment(),
@@ -181,7 +181,10 @@ class frmDocumento :
         val downloadTask = DownloadPdfTask()
         archivo = serie
         anio = fecha.substringAfterLast("/")
-        downloadTask.execute("$URL_DOC$tipo/$anio/$serie/$clave.pdf")
+
+        val tipodoc = if (tipo == "1") "factura" else "nc"
+
+        downloadTask.execute("$URL_DOC/$tipodoc/$anio/$clave.pdf")
     }
 
     override fun onFirstImageClick(Interno: String, Sri: String) {

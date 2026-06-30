@@ -1146,55 +1146,94 @@ class ClsLLenarControles(private val context: Context) {
         return referencias
     }
 
-    fun fnBuscaReferenciaYcombos(referencia: String): List<datos> {
+    fun fnBuscaReferenciaYcombos(
+        textoBuscar: String,
+        criterio: String
+    ): List<datos> {
+
         val referencias = mutableListOf<datos>()
         val db = DatabaseManager.openDatabase(context)
-        val cursor = db.rawQuery("SELECT it_referencia, it_codigo, " +
-                "ROUND(it_almesa + it_teler + it_mmg + it_mmq + it_exhTele + it_exhVmr ,2) AS stock," +
-                "ROUND(pv_preciosubdistrib, 3) AS pv_preciosubdistrib," +
-                "ROUND(pv_precio5, 3) AS pv_precio5, " +
-                "ROUND(pv_precio6, 3) AS pv_precio6, " +
-                "it_descripcion, " +
-                "um_pesoCE, " +
-                "it_costoprom, " +
-                "0 AS cb_codigo " +
-                "FROM ve_ws_item WHERE it_referencia LIKE '%$referencia%'" +
-                "union ALL " +
-                "SELECT i.it_referencia," +
-                "                d.it_codigo," +
-                "                i.it_almesa + i.it_teler + i.it_mmg + i.it_mmq + i.it_exhTele + i.it_exhVmr  AS stock, " +
-                "                d.cb_precio AS pv_preciosubdistrib, " +
-                "                0 AS pv_precio5, " +
-                "                0 AS pv_precio6, " +
-                "                c.cb_descripcionA AS it_descripcion, " +
-                "                i.um_pesoCE, " +
-                "                d.it_costopromedio AS it_costoprom, " +
-                "                c.cb_codigo " +
-                "                from iv_ws_itemComboDet d " +
-                "                inner join ve_ws_item i on d.it_codigo = i.it_codigo " +
-                "                left join iv_ws_itemComboCab c on d.cb_codigo = c.cb_codigo " +
-                "                where c.cb_descripcionA like'%$referencia%' and d.cb_linea = 1 " +
-                "order by 1,10", null)
+
+        val campoItem = when (criterio) {
+            "Referencia" -> "it_referencia"
+            "Marca" -> "it_marca"
+            "Descripcion" -> "it_descripcion"
+            else -> "it_referencia"
+        }
+
+        val campoCombo = when (criterio) {
+            "Referencia" -> "i.it_referencia"
+            "Marca" -> "i.it_marca"
+            "Descripcion" -> "c.cb_descripcionA"
+            else -> "i.it_referencia"
+        }
+
+        val query = """
+        SELECT 
+            it_referencia, 
+            it_codigo,
+            ROUND(it_almesa + it_teler + it_mmg + it_mmq + it_exhTele + it_exhVmr, 2) AS stock,
+            ROUND(pv_preciosubdistrib, 3) AS pv_preciosubdistrib,
+            ROUND(pv_precio5, 3) AS pv_precio5,
+            ROUND(pv_precio6, 3) AS pv_precio6,
+            it_descripcion,
+            um_pesoCE,
+            it_costoprom,
+            0 AS cb_codigo
+        FROM ve_ws_item 
+        WHERE $campoItem LIKE ?
+
+        UNION ALL
+
+        SELECT 
+            i.it_referencia,
+            d.it_codigo,
+            ROUND(i.it_almesa + i.it_teler + i.it_mmg + i.it_mmq + i.it_exhTele + i.it_exhVmr, 2) AS stock,
+            d.cb_precio AS pv_preciosubdistrib,
+            0 AS pv_precio5,
+            0 AS pv_precio6,
+            c.cb_descripcionA AS it_descripcion,
+            i.um_pesoCE,
+            d.it_costopromedio AS it_costoprom,
+            c.cb_codigo
+        FROM iv_ws_itemComboDet d
+        INNER JOIN ve_ws_item i ON d.it_codigo = i.it_codigo
+        LEFT JOIN iv_ws_itemComboCab c ON d.cb_codigo = c.cb_codigo
+        WHERE $campoCombo LIKE ?
+          AND d.cb_linea = 1
+
+        ORDER BY 1, 10
+    """.trimIndent()
+
+        val parametro = "%$textoBuscar%"
+
+        val cursor = db.rawQuery(
+            query,
+            arrayOf(parametro, parametro)
+        )
 
         if (cursor.moveToFirst()) {
             do {
                 val nuevaReferencia = datos(
-                    referencia = cursor.getString(cursor.getColumnIndexOrThrow("it_referencia"))?:"",
-                    codigo = cursor.getString(cursor.getColumnIndexOrThrow("it_codigo")),
-                    stock = cursor.getString(cursor.getColumnIndexOrThrow("stock"))?:"0",
+                    referencia = cursor.getString(cursor.getColumnIndexOrThrow("it_referencia")) ?: "",
+                    codigo = cursor.getString(cursor.getColumnIndexOrThrow("it_codigo")) ?: "",
+                    stock = cursor.getString(cursor.getColumnIndexOrThrow("stock")) ?: "0",
                     precioSub = cursor.getDouble(cursor.getColumnIndexOrThrow("pv_preciosubdistrib")).toString(),
                     precioCont = cursor.getDouble(cursor.getColumnIndexOrThrow("pv_precio5")).toString(),
                     precioCred = cursor.getDouble(cursor.getColumnIndexOrThrow("pv_precio6")).toString(),
-                    descripcion = cursor.getString(cursor.getColumnIndexOrThrow("it_descripcion"))?:"",
-                    unidadCE = cursor.getString(cursor.getColumnIndexOrThrow("um_pesoCE"))?:"0",
+                    descripcion = cursor.getString(cursor.getColumnIndexOrThrow("it_descripcion")) ?: "",
+                    unidadCE = cursor.getString(cursor.getColumnIndexOrThrow("um_pesoCE")) ?: "0",
                     costoProm = cursor.getDouble(cursor.getColumnIndexOrThrow("it_costoprom")).toString(),
-                    combo = cursor.getString(cursor.getColumnIndexOrThrow("cb_codigo"))?:"0",
-                    cd_codigo= cursor.getString(cursor.getColumnIndexOrThrow("cb_codigo"))?:"",
+                    combo = cursor.getString(cursor.getColumnIndexOrThrow("cb_codigo")) ?: "0",
+                    cd_codigo = cursor.getString(cursor.getColumnIndexOrThrow("cb_codigo")) ?: "",
                     it_regalo = "0"
                 )
+
                 referencias.add(nuevaReferencia)
+
             } while (cursor.moveToNext())
         }
+
         cursor.close()
         db.close()
 
@@ -6306,6 +6345,36 @@ class ClsLLenarControles(private val context: Context) {
         } finally {
             db.endTransaction()
             db.close()
+        }
+    }
+
+    fun fnObtenerLoteCliente(clienteId: String): Politica? {
+        val db = DatabaseManager.openDatabase(context)
+
+        return db.rawQuery(
+            "SELECT cl_lotehistorico, cl_lotegerencia FROM ve_ws_clienteAsignadoVendedor WHERE cl_codigo = ?",
+            arrayOf(clienteId)
+        ).use { cursor ->
+            if (cursor.moveToFirst()) {
+
+                val loteHistorico = cursor
+                    .getString(cursor.getColumnIndexOrThrow("cl_lotehistorico"))
+                    ?.toDoubleOrNull() ?: 0.0
+
+                val loteGerencia = cursor
+                    .getString(cursor.getColumnIndexOrThrow("cl_lotegerencia"))
+                    ?.toDoubleOrNull() ?: 0.0
+
+                Politica(
+                    String.format("%.2f", loteHistorico),
+                    String.format("%.2f", loteGerencia)
+                )
+
+            } else {
+                null
+            }
+        }.also {
+            DatabaseManager.closeDatabase()
         }
     }
 

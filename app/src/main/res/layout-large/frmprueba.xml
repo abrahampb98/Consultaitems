@@ -551,6 +551,18 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
 
+                        <ImageButton
+                            android:id="@+id/btnTipoBusqueda"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/button_background"
+                            android:src="@drawable/ic_more"
+                            android:padding="10dp"
+                            android:scaleType="centerInside"
+                            android:contentDescription="Menu"
+                            app:tint="@android:color/black" />
+
+
                         <EditText
                             android:id="@+id/txtReferencia"
                             android:layout_width="match_parent"
@@ -1042,20 +1054,31 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="2dp"
                 android:orientation="horizontal"
+                android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/constraint3">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.43"
                     android:text="Pesos"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="130dp"
+                    android:layout_weight="0.42"
+                    android:text="Lotes"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Totales"
                     android:textColor="@color/black"
                     android:textSize="18dp"
@@ -1075,7 +1098,6 @@
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteY="671dp">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -1083,18 +1105,18 @@
                     android:background="@drawable/background"
                     android:orientation="horizontal">
 
-
+                    <!-- ************************** PESOS ************************** -->
                     <LinearLayout
                         android:id="@+id/new_layout_left"
                         style="@style/BorderedLayout"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_weight="3"
+                        android:layout_weight="2"
                         android:background="@drawable/background"
-                        android:padding="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -1117,9 +1139,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-
                                 android:text="0.00"
                                 android:textSize="@dimen/font_size_small" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -1145,6 +1167,7 @@
                                 android:gravity="center"
                                 android:text="0.00"
                                 android:textSize="@dimen/font_size_small" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -1169,42 +1192,126 @@
                                 android:paddingLeft="5dp"
                                 android:text="Cobertura"
                                 android:textSize="@dimen/font_size_small" />
-                        </LinearLayout>
 
+                        </LinearLayout>
 
                     </LinearLayout>
 
 
+                    <!-- ************************** LOTE ************************** -->
                     <LinearLayout
+                        android:id="@+id/lote"
                         style="@style/BorderedLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1.8"
                         android:background="@drawable/background"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                        <!-- **************************layout7**********************************  -->
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/layout11"
-
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="15dp"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Lote"
+                                android:paddingRight="24dp"
+                                android:text="Pedido:"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/txtLote"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="0.00"
+                                android:textSize="@dimen/font_size_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="12dp"
+                                android:text="Hisotrico:"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/font_size_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtLoteH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="0.00"
+                                android:textSize="@dimen/font_size_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="12dp"
+                                android:text="Gerencia:"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/font_size_small"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtLoteG"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="0.00"
+                                android:textSize="@dimen/font_size_small" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!-- ************************** TOTALES ************************** -->
+                    <LinearLayout
+                        style="@style/BorderedLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="6.2"
+                        android:background="@drawable/background"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <!-- **************************layout7********************************** -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layout11"
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:id="@+id/lblSub"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:padding="2dp"
@@ -1215,7 +1322,7 @@
 
                             <TextView
                                 android:id="@+id/txtSubotal"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="10dp"
@@ -1225,10 +1332,9 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small" />
 
-
                             <TextView
                                 android:id="@+id/lblDesc"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="0dp"
                                 android:layout_weight="1"
@@ -1239,7 +1345,7 @@
 
                             <TextView
                                 android:id="@+id/txtSeguro"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
@@ -1248,10 +1354,9 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small" />
 
-
                             <TextView
                                 android:id="@+id/lblSeg"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
@@ -1262,7 +1367,7 @@
 
                             <TextView
                                 android:id="@+id/txtFlete"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
@@ -1273,7 +1378,7 @@
 
                         </LinearLayout>
 
-                        <!-- **************************layout13**********************************  -->
+                        <!-- **************************layout13********************************** -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1282,18 +1387,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/txtLote"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:background="@color/yellow"
-                                android:gravity="center"
-                                android:text="0.00"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/font_size_small" />
-
-                            <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
                                 android:layout_weight="1"
@@ -1304,7 +1398,7 @@
 
                             <TextView
                                 android:id="@+id/txtDescuentoT"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="10dp"
                                 android:layout_weight="1"
@@ -1313,9 +1407,8 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small" />
 
-
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="1dp"
                                 android:layout_weight="1"
@@ -1326,7 +1419,7 @@
 
                             <TextView
                                 android:id="@+id/txtIva"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
@@ -1335,10 +1428,9 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small" />
 
-
                             <TextView
                                 android:id="@+id/lblTot"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="11dp"
                                 android:layout_weight="1"
@@ -1349,17 +1441,17 @@
 
                             <TextView
                                 android:id="@+id/txtTotalPv"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="right"
                                 android:text="0.00"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/font_size_small" />
+
                         </LinearLayout>
 
-
-                        <!-- **************************layout14**********************************  -->
+                        <!-- **************************layout14********************************** -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1369,52 +1461,54 @@
 
                             <Button
                                 android:id="@+id/btnGuardar"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_background"
                                 android:text="Guardar"
                                 android:textAlignment="center"
-                                android:background="@drawable/button_background"
                                 android:textSize="@dimen/font_size_small" />
 
                             <Button
                                 android:id="@+id/btnEliminarDoc"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_background"
                                 android:text="Eliminar"
                                 android:textAlignment="center"
-                                android:background="@drawable/button_background"
                                 android:textSize="@dimen/font_size_small" />
 
                             <Button
                                 android:id="@+id/btnEnviar"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_background"
                                 android:text="Enviar"
                                 android:textAlignment="center"
-                                android:background="@drawable/button_background"
-                                android:layout_marginLeft="10dp"
                                 android:textSize="@dimen/font_size_small" />
 
                             <Button
                                 android:id="@+id/btnImprimir"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_background"
                                 android:text="Imprimir"
                                 android:textAlignment="center"
-                                android:background="@drawable/button_background"
-                                android:layout_marginLeft="10dp"
                                 android:textSize="@dimen/font_size_small" />
 
                         </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

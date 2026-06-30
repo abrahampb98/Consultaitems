@@ -88,7 +88,6 @@ import com.itextpdf.layout.element.Image
 import com.itextpdf.layout.property.HorizontalAlignment
 import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileOutputStream
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.SimpleDateFormat
@@ -208,6 +207,11 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
     private var provincia: Int = 0
     private var plazo: String = ""
 
+    private lateinit var btnTipoBusqueda: ImageButton
+    private var criterioBusqueda: String = "Referencia"
+
+    private lateinit var txtLoteH: TextView
+    private lateinit var txtLoteG: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -282,11 +286,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
 
 
         btnGuardar.setOnClickListener {
-            if(adaptadorDetalle.fnSugerencia()==0){
-                fnSugerencias()
-            }else{
-                fnMostrarDialogoDeConfirmacion()
-            }
+            fnValidarLoteGerenciaYContinuar()
         }
 
         btnBuscar.setOnClickListener {
@@ -353,6 +353,10 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         btnOrden.setOnClickListener {
             fnOpenImagePicker()
 
+        }
+
+        btnTipoBusqueda.setOnClickListener {
+            fnMostrarCriteriosBusqueda()
         }
 
 
@@ -929,6 +933,9 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         tarifa = view.findViewById(R.id.txtTarifaView)
         cobertura = view.findViewById(R.id.txtCoberturaView)
 
+        txtLoteH = view.findViewById(R.id.txtLoteH)
+        txtLoteG = view.findViewById(R.id.txtLoteG)
+
         btnOrden = view.findViewById(R.id.btnOrden)
 
         constraintLayout = view.findViewById(R.id.constraint)
@@ -936,6 +943,8 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         spinnerListado = view.findViewById(R.id.spinnerListado)
 
         //btnSugerencia = view.findViewById(R.id.btnSugerencia)
+
+        btnTipoBusqueda = view.findViewById(R.id.btnTipoBusqueda)
 
         hideSoftKeyboard()
     }
@@ -957,7 +966,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
                 ReciclerviewRef.adapter = adaptadorRef
 
             } else if (im_codigo.toInt() == 1) { //todos los items
-                val resultados = llenarControles.fnBuscaReferenciaYcombos(BusReferencia)
+                val resultados = llenarControles.fnBuscaReferenciaYcombos(BusReferencia, criterioBusqueda)
 
                 for (dato in resultados) {
                     datosList.add(dato)
@@ -966,7 +975,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
                 val layoutManager = LinearLayoutManager(requireContext())
                 ReciclerviewRef.layoutManager = layoutManager
                 ReciclerviewRef.adapter = adaptadorRef
-            } else if (im_codigo.toInt() == 14) {
+            } else if (im_codigo.toInt() == 14) { //combos
                 val resultados = llenarControles.fnBuscaReferenciaCombos(BusReferencia)
                 for (dato in resultados) {
                     datosList.add(dato)
@@ -1217,6 +1226,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
                 )  // Configura el nombre del cliente seleccionado en el AutoCompleteTextView
                 cl_codigo = cliente.id  // Guarda el ID del cliente en cl_codigo
 
+                fnBuscarLoteCliente()
 
                 val politica = llenarControles.fnObtenerPolitica(cliente.id)
                 if (politica != null) {
@@ -1286,6 +1296,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         btnImprimir.isEnabled = false
         btnOrden.isEnabled = false
         spinnerListado.isEnabled = false
+        btnTipoBusqueda.isEnabled = false
 
     }
 
@@ -1310,6 +1321,7 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         btnBuscar.isEnabled = true
         btnOrden.isEnabled = true
         spinnerListado.isEnabled = true
+        btnTipoBusqueda.isEnabled = true
     }
 
     fun fnAcionesAlPulsarModificar() {
@@ -1357,6 +1369,9 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         txtFlete.setText("0.00")
         txtCantidad.setText("")
         txtPrecio.setText("")
+        criterioBusqueda = "Referencia"
+        txtLoteH.setText("")
+        txtLoteG.setText("")
     }
 
     fun fnGuardadoautomatico() {
@@ -1764,7 +1779,6 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
             txtCliente.setText(clienteNombre)
             txtTransporte.setText(transporteNombre)
             txtDesc.text = descuento
-
             val politica = llenarControles.fnObtenerPolitica(clCodigo)
             if (politica != null) {
                 txtPolitica.text = politica.descripcion
@@ -2894,8 +2908,63 @@ class frmPedidoVendedor : Fragment(), MiAdaptadorRef.OnItemClickListener, MiAdap
         }
     }
 
+    private fun fnMostrarCriteriosBusqueda() {
+        val criterios = arrayOf(
+            "Referencia",
+            "Marca",
+            "Descripcion"
+        )
 
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        builder.setTitle("Seleccione criterio de búsqueda")
 
+        builder.setSingleChoiceItems(
+            criterios,
+            criterios.indexOf(criterioBusqueda)
+        ) { dialog, which ->
+
+            criterioBusqueda = criterios[which]
+
+            dialog.dismiss()
+        }
+
+        builder.show()
+    }
+
+    fun fnBuscarLoteCliente(){
+        val lote = llenarControles.fnObtenerLoteCliente(cl_codigo)
+        if (lote != null) {
+            txtLoteH.text = lote.descripcion
+            txtLoteG.text = lote.codigo
+        }
+    }
+
+    private fun fnValidarLoteGerenciaYContinuar() {
+
+        val lotePedido = txtLote.text.toString().toDoubleOrNull() ?: 0.0
+        val loteGerencia = txtLoteG.text.toString().toDoubleOrNull() ?: 0.0
+
+        if (lotePedido < loteGerencia) {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Sistema")
+                .setMessage("El pedido no cumple con el Lote Mínimo establecido por Gerencia")
+                .setPositiveButton("Aceptar") { dialog, _ ->
+                    dialog.dismiss()
+                    fnContinuarFlujoGuardar()
+                }
+                .show()
+        } else {
+            fnContinuarFlujoGuardar()
+        }
+    }
+
+    private fun fnContinuarFlujoGuardar() {
+        if (adaptadorDetalle.fnSugerencia() == 0) {
+            fnSugerencias()
+        } else {
+            fnMostrarDialogoDeConfirmacion()
+        }
+    }
 
 }
 

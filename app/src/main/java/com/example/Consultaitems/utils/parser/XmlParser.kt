@@ -140,7 +140,7 @@ class XMLParser {
                             "um_pesoCE", "pv_preciosubdistrib", "pv_desctosubdistrib", "pv_costoN"-> values.put(tagName,value)
                             "it_exhVmr", "it_dcp", "it_exhTele", "it_costoprom", "it_activaex", "tt_tipo"-> values.put(tagName,value)
                             "tc_comision", "tc_codigo", "mg_regalo"-> values.put(tagName,value.toDouble())
-                            "tf_fechaing","tr_fechaing", "pr_fechaing", "pz_fechaing", "pi_fechaing",
+                            "tf_fechaing","tr_fechaing", "pr_fechaing", "pz_fechaing", "pi_fechaing", "cl_email", "cl_lotehistorico","cl_lotegerencia",
                             "ps_fechaing", "tt_fechaing","td_fechaing", "pz_codigo", "tt_codigo","tt_descripcion","tt_peso","tt_tarifa1","tt_tarifa2",
                             "ci_codigo", "ci_descripcion", "tt_codigoA", "cb_descripcionA", "cb_monto","cl_lopdp","cl_lopdpusuarioing","cl_campania",
                             "cb_montocp","cb_margen","cb_fechaing", "cb_tipo", "cb_linea", "cb_cantidad","pr_codigo","pr_descripcion", "pr_saldo",

@@ -426,7 +426,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="2.1"
             android:text="Nombre del Cliente"
             android:textStyle="bold"
             android:padding="5dp"

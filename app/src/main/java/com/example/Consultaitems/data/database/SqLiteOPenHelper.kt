@@ -988,6 +988,9 @@ class SqLiteOpenHelper(context: Context) : SQLiteOpenHelper(
 
         agregarColumnaSiNoExiste(db, "iv_ws_conteo", "co_reconteo", "TEXT")
         agregarColumnaSiNoExiste(db, "iv_ws_conteo", "co_linea", "INTEGER")
+
+        agregarColumnaSiNoExiste(db, "ve_ws_clienteAsignadoVendedor", "cl_lotehistorico", "DOUBLE DEFAULT 0")
+        agregarColumnaSiNoExiste(db, "ve_ws_clienteAsignadoVendedor", "cl_lotegerencia", "DOUBLE DEFAULT 0")
     }
 
     private fun agregarColumnaSiNoExiste(
@@ -1043,6 +1046,6 @@ class SqLiteOpenHelper(context: Context) : SQLiteOpenHelper(
 
         // La recuperada por JADX estaba en versión 39.
         // Se deja 40 para forzar migración en instalaciones donde ya exista una base incompleta.
-        private const val DATABASE_VERSION = 39
+        private const val DATABASE_VERSION = 40
     }
 }
